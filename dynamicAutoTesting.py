@@ -75,7 +75,6 @@ def wait_start(proc):
 
 def checkProcess(proc, name):
 	proc.stdin.write("ps\n")
-	time.sleep(1)
 
 	try:
 		s = proc.stdout.read()
@@ -141,7 +140,7 @@ def main():
 
 				
 				# let the app execute for certain time if it is successfully launched
-				time.sleep(5)
+				time.sleep(2)
 				check_ret = checkProcess(p, packageName)
 				if check_ret == 1:				
 					time.sleep(EXECUTION_TIME)
