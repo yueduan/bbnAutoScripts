@@ -100,7 +100,7 @@ def main():
 			moveAllFiles(SYS_DIR_SRC_PATH, SYS_DIR_PATH)
 
 			# start droidscope   
-			os.chdir("/home/yduan/yueduan/android-5.0.0_r3/external/droidscope_art/")
+			os.chdir(EMULATOR_PATH)
 			p = subprocess.Popen(args="sudo ./objs/emulator -sdcard mySdCardFile.img -no-audio -no-window -partition-size 1000 -sysdir /home/yduan/yueduan/android-5.0.0_r3/out/target/product/generic -kernel /home/yduan/yueduan/android-5.0.0_r3/android_art_kernel/goldfish/arch/arm/boot/zImage -memory 2048 -qemu -monitor stdio", stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
  			fl = fcntl.fcntl(p.stdout, fcntl.F_GETFL)
  			fcntl.fcntl(p.stdout, fcntl.F_SETFL, fl | os.O_NONBLOCK)
