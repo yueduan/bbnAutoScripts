@@ -90,7 +90,7 @@ def checkProcess(proc, name):
 
 
 def main():
-	#shutil.copyfile("/dynamicAutoTestingScripts/libunpacker.so", PLUGIN_PATH)
+	#shutil.copyfile("/bbnAutoScripts/libunpacker.so", PLUGIN_PATH)
 	cleanDir(RESULT_PATH)
 	try:
 		pl = subprocess.Popen(['ps', '-U', '0'], stdout=subprocess.PIPE).communicate()[0]
@@ -118,7 +118,7 @@ def main():
 			for filename in filenames:
 				file_path = os.path.join(dirname, filename)
 				print "Installing: " + file_path
-				cmd = "/dynamicAutoTestingScripts/install_uninstall.sh {} 1".format(file_path)
+				cmd = "/bbnAutoScripts/install_uninstall.sh {} 1".format(file_path)
 				proc_install = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     				(output, err) = proc_install.communicate()
 				print output
@@ -128,13 +128,13 @@ def main():
  				input_cmd(p, "load_plugin {plugin}".format(plugin=PLUGIN_PATH))
 
 				# get package name of the app and hook the process
-				packageName = subprocess.check_output(['/dynamicAutoTestingScripts/getPackageNameFromApk.sh',file_path])
+				packageName = subprocess.check_output(['/bbnAutoScripts/getPackageNameFromApk.sh',file_path])
 				cmd = "do_hookapitests {}".format(packageName)
 				input_cmd(p, cmd)
 
 				# launch the app
 				print "Launching the app"
-				cmd = "/dynamicAutoTestingScripts/launch_KillApp.sh {} 1".format(file_path)
+				cmd = "/bbnAutoScripts/launch_KillApp.sh {} 1".format(file_path)
 				proc_launch = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 				(output, err) = proc_launch.communicate()
 				print output
@@ -152,7 +152,7 @@ def main():
 		
 				# clean up the app
 				print "Uninstalling: " + file_path
-				cmd = "/dynamicAutoTestingScripts/install_uninstall.sh {} 2".format(file_path)
+				cmd = "/bbnAutoScripts/install_uninstall.sh {} 2".format(file_path)
 				proc_uninstall = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 				(output, err) = proc_uninstall.communicate()
 				print output
