@@ -89,7 +89,7 @@ def checkProcess(proc, name):
 
 
 def main():
-	#shutil.copyfile("/bbnAutoScripts/libunpacker.so", PLUGIN_PATH)
+	shutil.copyfile("/bbnAutoScripts/libjavatracer.so", PLUGIN_PATH)
 	cleanDir(RESULT_PATH)
 	try:
 		pl = subprocess.Popen(['ps', '-U', '0'], stdout=subprocess.PIPE).communicate()[0]
