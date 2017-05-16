@@ -1,8 +1,8 @@
 #!/bin/bash
 
-APP_PATH = "/test_apps/"
-ANALYSIS_PATH = "/bbnAnalysis"
-INPUT_DIR = "/bbnAnalysis/apks"
+APP_PATH="/test_apps/"
+ANALYSIS_PATH="/bbnAnalysis"
+INPUT_DIR="/bbnAnalysis/apks"
 
 APKEXT=.apk
 
